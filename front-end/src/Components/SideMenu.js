@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { SideMenuContext } from "./Navbar";
 
 const buttonStyle = {
   padding: "10px 20px",
@@ -19,7 +21,7 @@ const showButtonStyle = {
 
 const commonStyle = {
   position: "fixed",
-  top: 34,
+  top: 55,
   bottom: 0,
   padding: "5px",
   border: "1px solid #0657FF",
@@ -54,16 +56,10 @@ const liStyle = {
 };
 
 function SideMenu() {
-  const [visible, setVisible] = React.useState(false);
+  const sideMenu = useContext(SideMenuContext);
   return (
     <div style={{ height: "200px" }}>
-      <button style={showButtonStyle} onClick={() => setVisible(true)}>
-        Show
-      </button>
-      <div style={visible ? visibleStyle : hiddenStyle}>
-        <button style={buttonStyle} onClick={() => setVisible(false)}>
-          Hide
-        </button>
+      <div style={sideMenu ? visibleStyle : hiddenStyle}>
         <div>
           <ul>
             <li style={liStyle}>Grupa</li>

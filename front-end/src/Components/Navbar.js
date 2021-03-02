@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { createContext } from "react";
 import SideMenu from "./SideMenu";
 
 const navStyle = {
@@ -47,11 +48,16 @@ const buttonStyle = {
   color: "white",
 };
 
-function Navbar() {
+export const SideMenuContext = createContext();
+
+const Navbar = () => {
+  const [sideMenu, setSideMenu] = useState(true);
   return (
     <div className="navbar-container" style={navStyle}>
       <div className="side-menu" style={sideMenuStyle}>
-        <button style={buttonStyle}>Menu</button>
+        <button style={buttonStyle} onClick={() => setSideMenu(!sideMenu)}>
+          Menu
+        </button>
       </div>
       <div className="links" style={linksStyle}>
         <a style={linkStyle} href="#">
@@ -71,6 +77,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

@@ -1,12 +1,22 @@
-import React from "react";
-import Navbar from "./Components/Navbar";
-import SideMenu from "./Components/SideMenu";
+import { SideMenuContext } from "./Components/Navbar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useContext } from "react";
+import Login from "./Components/Login";
 
 function App() {
+  const sideMenu = useContext(SideMenuContext);
   return (
     <div>
-      <Navbar />
-      <SideMenu />
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          {/* <Route path="/">
+            <Home />
+          </Route> */}
+        </Switch>
+      </Router>
     </div>
   );
 }
