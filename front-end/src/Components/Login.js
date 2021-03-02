@@ -1,4 +1,11 @@
 import React from "react";
+import "./Login.css";
+
+const loginStyle = {
+  position: "fixed",
+  top: "200px",
+  left: "300px",
+};
 
 function Login() {
   const usernameRef = React.useRef();
@@ -15,7 +22,7 @@ function Login() {
     console.log(json);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={loginStyle}>
       <div>
         <label>Username: </label>
         <input type="text" ref={usernameRef} />
