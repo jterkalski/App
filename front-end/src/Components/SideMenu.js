@@ -1,6 +1,4 @@
 import React from "react";
-import { useContext } from "react";
-import { SideMenuContext } from "./Navbar";
 
 const buttonStyle = {
   padding: "10px 20px",
@@ -19,26 +17,28 @@ const showButtonStyle = {
   top: 34,
 };
 
-const commonStyle = {
-  position: "fixed",
-  top: 55,
-  bottom: 0,
-  padding: "5px",
-  border: "1px solid #0657FF",
-  borderRadius: "0 30px 30px 0",
-  background: "#C9E5FF",
-  width: "280px",
-  transition: "0.5s",
-  overflow: "hidden",
+const sideMenuStyles = {
+  menu: {
+    position: "fixed",
+    top: 60,
+    bottom: 0,
+    padding: "5px",
+    border: "1px solid #0657FF",
+    borderRadius: "0 30px 30px 0",
+    background: "#C9E5FF",
+    width: "280px",
+    transition: "0.5s",
+    overflow: "hidden",
+  },
 };
 
-const visibleStyle = {
-  ...commonStyle,
+sideMenuStyles.menu.visible = {
+  ...sideMenuStyles.menu,
   left: "0",
 };
 
-const hiddenStyle = {
-  ...commonStyle,
+sideMenuStyles.menu.hidden = {
+  ...sideMenuStyles.menu,
   left: "-300px",
 };
 
@@ -55,11 +55,10 @@ const liStyle = {
   listStyle: "circle inside",
 };
 
-function SideMenu() {
-  const sideMenu = useContext(SideMenuContext);
+const SideMenu = ({ visible }) => {
   return (
     <div style={{ height: "200px" }}>
-      <div style={sideMenu ? visibleStyle : hiddenStyle}>
+      <div style={sideMenuStyles.menu[visible ? "visible" : "hidden"]}>
         <div>
           <ul>
             <li style={liStyle}>Grupa</li>
@@ -70,6 +69,6 @@ function SideMenu() {
       </div>
     </div>
   );
-}
+};
 
 export default SideMenu;

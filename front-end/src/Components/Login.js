@@ -7,6 +7,17 @@ const loginStyle = {
   left: "300px",
 };
 
+const buttonStyle = {
+  padding: "10px 20px",
+  border: "2px solid #3085d6",
+  borderRadius: "5px",
+  background: "#3085d6",
+  boxShadow: "5px 5px 5px grey",
+  textShadow: "1px 1px 1px black",
+  fontWeight: "900",
+  color: "white",
+};
+
 function Login() {
   const usernameRef = React.useRef();
   const passwordRef = React.useRef();

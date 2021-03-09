@@ -13,13 +13,15 @@ const navStyle = {
 const sideMenuStyle = {
   padding: "5px",
   flex: "none",
-  background: "#aacdd2",
+  background: "#c9e5ff",
+  border: "1px solid #3085d6",
 };
 
 const linksStyle = {
   padding: "5px",
   flex: "none",
-  background: "#ddf9c4",
+  background: "#c9e5ff",
+  border: "1px solid #3085d6",
 };
 
 const linkStyle = {
@@ -28,16 +30,19 @@ const linkStyle = {
 
 const spacerStyle = {
   flex: "1",
-  background: "#fff9c4",
+  background: "#c9e5ff",
+  border: "1px solid #3085d6",
 };
 
 const userMenuStyle = {
   padding: "5px",
   flex: "none",
-  background: "#bbdefb",
+  background: "#c9e5ff",
+  border: "1px solid #3085d6",
 };
 
 const buttonStyle = {
+  margin: "3px",
   padding: "10px 20px",
   border: "2px solid #3085d6",
   borderRadius: "5px",
@@ -48,14 +53,11 @@ const buttonStyle = {
   color: "white",
 };
 
-export const SideMenuContext = createContext();
-
-const Navbar = () => {
-  const [sideMenu, setSideMenu] = useState(true);
+const Navbar = ({ onSideMenu }) => {
   return (
     <div className="navbar-container" style={navStyle}>
       <div className="side-menu" style={sideMenuStyle}>
-        <button style={buttonStyle} onClick={() => setSideMenu(!sideMenu)}>
+        <button style={buttonStyle} onClick={onSideMenu}>
           Menu
         </button>
       </div>
@@ -64,7 +66,7 @@ const Navbar = () => {
           Home
         </a>
         <a style={linkStyle} href="#">
-          Gallery
+          MailBox
         </a>
         <a style={linkStyle} href="#">
           About
@@ -72,8 +74,8 @@ const Navbar = () => {
       </div>
       <div className="spacer" style={spacerStyle}></div>
       <div className="user-menu" style={userMenuStyle}>
-        <button>Login</button>
-        <button>Sign Up</button>
+        <button style={buttonStyle}>Login</button>
+        <button style={buttonStyle}>Sign Up</button>
       </div>
     </div>
   );
